@@ -25,6 +25,7 @@ jobs:
           lef_path: lef/${{ steps.top_module.outputs.TOP_MODULE }}.lef
           verilog_path: src/tt_um_fabulous_boat_26_stubs.sv
           pdk: gf180mcuD
+          tools-ref: gf180-xxl
 
   precheck:
     needs: gds
@@ -32,6 +33,8 @@ jobs:
     steps:
       - name: Run Tiny Tapeout Precheck
         uses: TinyTapeout/tt-gds-action/precheck@ttgf26a
+        with:
+          tools-ref: gf180-xxl
 
   viewer:
     needs: gds
@@ -41,3 +44,5 @@ jobs:
       id-token: write   # to verify the deployment originates from an appropriate source
     steps:
       - uses: TinyTapeout/tt-gds-action/viewer@ttgf26d
+        with:
+          tools-ref: gf180-xxl
