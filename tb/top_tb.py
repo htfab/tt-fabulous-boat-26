@@ -15,7 +15,7 @@ from cocotb_tools.runner import get_runner
 from cocotb.types import LogicArray, Logic
 
 proj_path = Path(__file__).resolve().parent
-fabric = os.getenv("FABRIC", "tiny_fabric_6x4")
+fabric = os.getenv("FABRIC", "tiny_fabric_boat_26")
 tile_library = os.getenv("TILE_LIBRARY", "tiny")
 emulation = os.getenv("EMULATION", False)
 
@@ -150,7 +150,7 @@ if __name__ == "__main__":
         print("Error: EMULATION and GL can't be set at the same time.")
         sys.exit(1)
     
-    hdl_toplevel = "tt_um_fabulous_gf_0p3_3v3"
+    hdl_toplevel = "tt_um_fabulous_boat_26"
     
     tiles_path = Path(proj_path / ".." / "ip" / "fabulous-tiles")
     primitives_path = Path(tiles_path) / "primitives"
