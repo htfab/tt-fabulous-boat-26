@@ -3,7 +3,7 @@
 # Tiny FABulous FPGA - (BOAT 26 version)
 
 - [Read the documentation for the project](docs/info.md)
-- [View the layout in your browser (GF0p3 3.3V)](https://gds-viewer.tinytapeout.com/?model=https://raw.githubusercontent.com/mole99/tt-fabulous-boat-26/refs/heads/main/gds/tt_um_fabulous_boat_26.gds&pdk=gf180mcuD)
+- [View the layout in your browser (BOAT 26 version)](https://gds-viewer.tinytapeout.com/?model=https://raw.githubusercontent.com/mole99/tt-fabulous-boat-26/refs/heads/main/gds/tt_um_fabulous_boat_26.gds&pdk=gf180mcuD)
 
 ## Requirements
 

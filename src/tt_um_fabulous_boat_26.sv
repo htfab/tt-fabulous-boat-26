@@ -17,7 +17,7 @@ module tt_um_fabulous_boat_26 (
 );
 
     parameter FABRIC_NUM_COLUMNS = 6;
-    parameter FABRIC_NUM_ROWS = 6;
+    parameter FABRIC_NUM_ROWS = 7;
     
     parameter FRAME_BITS_PER_ROW = 32;
     parameter MAX_FRAMES_PER_COL = 20;
