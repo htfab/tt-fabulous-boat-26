@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © 2026 Leo Moser <leo.moser@pm.me>
 // SPDX-License-Identifier: Apache-2.0
 
-module tt_um_fabulous_gf_0p3_3v3 (
+module tt_um_fabulous_boat_26 (
     inout VPWR,
     inout VGND,
     input  wire [7:0] ui_in,    // Dedicated inputs

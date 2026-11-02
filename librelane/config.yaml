@@ -14,20 +14,20 @@ meta:
     OpenROAD.IRDropReport: null
     Checker.YosysUnmappedCells: null
 
-DESIGN_NAME: tt_um_fabulous_gf_0p3_3v3
+DESIGN_NAME: tt_um_fabulous_boat_26
 VERILOG_FILES:
-  - dir::src/tt_um_fabulous_gf_0p3_3v3.sv
-  - dir::ip/fabric_config/fabric_config.sv
-  - dir::ip/fabric_bitbang/fabric_bitbang.sv
+  - dir::../src/tt_um_fabulous_boat_26.sv
+  - dir::../ip/fabric_config/fabric_config.sv
+  - dir::../ip/fabric_bitbang/fabric_bitbang.sv
   
 CLOCK_PORT: clk
 CLOCK_PERIOD: 20 # 20ns = 50MHz
 
 FP_SIZING: "absolute"
-DIE_AREA: [0, 0, expr::(2880.640/2), expr::(1473.920/2)]
-FP_DEF_TEMPLATE: dir::src/tt_block_4x4_pgvdd.def
+DIE_AREA: [0, 0, expr::(2880.640/2), expr::(3120.320/2)]
+FP_DEF_TEMPLATE: dir::tt_block_4x8_pgvdd.def
 
-PDN_CFG: dir::src/pdn_cfg.tcl
+PDN_CFG: dir::pdn_cfg.tcl
 #PDN_EXTEND_TO: "boundary"
 
 PDN_VOFFSET: 20
@@ -66,22 +66,22 @@ FP_OBSTRUCTIONS:
 - [expr::(0.56 * (2374)), 0, "expr::$DIE_AREA[2]", "expr::($DIE_AREA[3] - (0.56 * 112))"]
 
 MACROS:
-  tiny_fabric_6x4:
+  tiny_fabric_boat_26:
     gds:
-      - dir::fabrics/tiny_fabric_6x4/macro/gf180mcuD/gds/tiny_fabric_6x4.gds
+      - dir::../fabrics/tiny_fabric_boat_26/macro/gf180mcuD/gds/tiny_fabric_boat_26.gds
     lef:
-      - dir::fabrics/tiny_fabric_6x4/macro/gf180mcuD/lef/tiny_fabric_6x4.lef
+      - dir::../fabrics/tiny_fabric_boat_26/macro/gf180mcuD/lef/tiny_fabric_boat_26.lef
     nl:
-      - dir::fabrics/tiny_fabric_6x4/macro/gf180mcuD/nl/tiny_fabric_6x4.nl.v
+      - dir::../fabrics/tiny_fabric_boat_26/macro/gf180mcuD/nl/tiny_fabric_boat_26.nl.v
     instances:
-      tiny_fabric_6x4:
+      tiny_fabric_boat_26:
         location: [expr::((0.46 * 80) * 3), expr::(0.68 * 1)] # expr::(0.68 * 27)
         orientation: FS
 
 ERROR_ON_PDN_VIOLATIONS: False
 
 PDN_MACRO_CONNECTIONS:
-- "tiny_fabric_6x4 VPWR VGND VPWR VGND"
+- "tiny_fabric_boat_26 VPWR VGND VPWR VGND"
 
 # No extract-unique, because the power straps
 # are connected in the top-level integration

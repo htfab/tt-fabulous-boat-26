@@ -1,9 +1,9 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
-# Tiny FABulous FPGA - GF0p3 (3.3V version)
+# Tiny FABulous FPGA - (BOAT 26 version)
 
 - [Read the documentation for the project](docs/info.md)
-- [View the layout in your browser (GF0p3 3.3V)](https://gds-viewer.tinytapeout.com/?model=https://raw.githubusercontent.com/mole99/tt-fabulous-gf-0p3-3v3/refs/heads/main/gds/tt_um_fabulous_gf_0p3_3v3.gds&pdk=gf180mcuD)
+- [View the layout in your browser (GF0p3 3.3V)](https://gds-viewer.tinytapeout.com/?model=https://raw.githubusercontent.com/mole99/tt-fabulous-boat-26/refs/heads/main/gds/tt_um_fabulous_boat_26.gds&pdk=gf180mcuD)
 
 ## Requirements
 
@@ -33,11 +33,11 @@ nix-shell
 To implement the fabric, run:
 
 ```
-make tiny_fabric_6x4
+make tiny_fabric_boat_26
 ```
 
 After the fabric has been implemented you can view it either in OpenROAD or KLayout by appending `-openroad` or `-klayout` to the fabric name.
-For example, to view `tiny_fabric_6x4` in OpenROAD, run: `make tiny_fabric_6x4-openroad`.
+For example, to view `tiny_fabric_boat_26` in OpenROAD, run: `make tiny_fabric_boat_26-openroad`.
 
 ## Implement User Designs
 

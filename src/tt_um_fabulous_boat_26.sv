@@ -1,7 +1,7 @@
 // SPDX-FileCopyrightText: © 2026 Leo Moser <leo.moser@pm.me>
 // SPDX-License-Identifier: Apache-2.0
 
-module tt_um_fabulous_gf_0p3_3v3 (
+module tt_um_fabulous_boat_26 (
     `ifdef USE_POWER_PINS
     inout VPWR,
     inout VGND,
@@ -16,8 +16,8 @@ module tt_um_fabulous_gf_0p3_3v3 (
     input  wire       rst_n     // reset_n - low to reset
 );
 
-    parameter FABRIC_NUM_COLUMNS = 10;
-    parameter FABRIC_NUM_ROWS = 4;
+    parameter FABRIC_NUM_COLUMNS = 6;
+    parameter FABRIC_NUM_ROWS = 6;
     
     parameter FRAME_BITS_PER_ROW = 32;
     parameter MAX_FRAMES_PER_COL = 20;
@@ -81,18 +81,18 @@ module tt_um_fabulous_gf_0p3_3v3 (
     assign uio_out = fabric_uio_out;
     assign uio_oe = fabric_uio_oe;
 
-    tiny_fabric_6x4 tiny_fabric_6x4 (
+    tiny_fabric_boat_26 tiny_fabric_boat_26 (
         // IN/OUT is from the PoV of the fabric
 
         // clk
-        .Tile_X1Y3_A_EN_top   (),
-        .Tile_X1Y3_A_IN_top   (),
-        .Tile_X1Y3_A_OUT_top  (fabric_clk),
+        .Tile_X1Y6_A_EN_top   (),
+        .Tile_X1Y6_A_IN_top   (),
+        .Tile_X1Y6_A_OUT_top  (fabric_clk),
     
         // rst_n
-        .Tile_X1Y3_B_EN_top   (),
-        .Tile_X1Y3_B_IN_top   (),
-        .Tile_X1Y3_B_OUT_top  (fabric_rst_n),
+        .Tile_X1Y6_B_EN_top   (),
+        .Tile_X1Y6_B_IN_top   (),
+        .Tile_X1Y6_B_OUT_top  (fabric_rst_n),
 
         // ui
         .Tile_X0Y2_A_EN_top   (),
@@ -147,33 +147,33 @@ module tt_um_fabulous_gf_0p3_3v3 (
         .Tile_X5Y1_D_OUT_top  (1'b0),
 
         // uio
-        .Tile_X2Y3_A_EN_top   (fabric_uio_oe[0]),
-        .Tile_X2Y3_A_IN_top   (fabric_uio_out[0]),
-        .Tile_X2Y3_A_OUT_top  (fabric_uio_in[0]),
-        .Tile_X2Y3_B_EN_top   (fabric_uio_oe[1]),
-        .Tile_X2Y3_B_IN_top   (fabric_uio_out[1]),
-        .Tile_X2Y3_B_OUT_top  (fabric_uio_in[1]),
-        .Tile_X2Y3_C_EN_top   (fabric_uio_oe[2]),
-        .Tile_X2Y3_C_IN_top   (fabric_uio_out[2]),
-        .Tile_X2Y3_C_OUT_top  (fabric_uio_in[2]),
-        .Tile_X2Y3_D_EN_top   (fabric_uio_oe[3]),
-        .Tile_X2Y3_D_IN_top   (fabric_uio_out[3]),
-        .Tile_X2Y3_D_OUT_top  (fabric_uio_in[3]),
-        .Tile_X3Y3_A_EN_top   (fabric_uio_oe[4]),
-        .Tile_X3Y3_A_IN_top   (fabric_uio_out[4]),
-        .Tile_X3Y3_A_OUT_top  (fabric_uio_in[4]),
-        .Tile_X3Y3_B_EN_top   (fabric_uio_oe[5]),
-        .Tile_X3Y3_B_IN_top   (fabric_uio_out[5]),
-        .Tile_X3Y3_B_OUT_top  (fabric_uio_in[5]),
-        .Tile_X3Y3_C_EN_top   (fabric_uio_oe[6]),
-        .Tile_X3Y3_C_IN_top   (fabric_uio_out[6]),
-        .Tile_X3Y3_C_OUT_top  (fabric_uio_in[6]),
-        .Tile_X3Y3_D_EN_top   (fabric_uio_oe[7]),
-        .Tile_X3Y3_D_IN_top   (fabric_uio_out[7]),
-        .Tile_X3Y3_D_OUT_top  (fabric_uio_in[7]),
+        .Tile_X2Y6_A_EN_top   (fabric_uio_oe[0]),
+        .Tile_X2Y6_A_IN_top   (fabric_uio_out[0]),
+        .Tile_X2Y6_A_OUT_top  (fabric_uio_in[0]),
+        .Tile_X2Y6_B_EN_top   (fabric_uio_oe[1]),
+        .Tile_X2Y6_B_IN_top   (fabric_uio_out[1]),
+        .Tile_X2Y6_B_OUT_top  (fabric_uio_in[1]),
+        .Tile_X2Y6_C_EN_top   (fabric_uio_oe[2]),
+        .Tile_X2Y6_C_IN_top   (fabric_uio_out[2]),
+        .Tile_X2Y6_C_OUT_top  (fabric_uio_in[2]),
+        .Tile_X2Y6_D_EN_top   (fabric_uio_oe[3]),
+        .Tile_X2Y6_D_IN_top   (fabric_uio_out[3]),
+        .Tile_X2Y6_D_OUT_top  (fabric_uio_in[3]),
+        .Tile_X3Y6_A_EN_top   (fabric_uio_oe[4]),
+        .Tile_X3Y6_A_IN_top   (fabric_uio_out[4]),
+        .Tile_X3Y6_A_OUT_top  (fabric_uio_in[4]),
+        .Tile_X3Y6_B_EN_top   (fabric_uio_oe[5]),
+        .Tile_X3Y6_B_IN_top   (fabric_uio_out[5]),
+        .Tile_X3Y6_B_OUT_top  (fabric_uio_in[5]),
+        .Tile_X3Y6_C_EN_top   (fabric_uio_oe[6]),
+        .Tile_X3Y6_C_IN_top   (fabric_uio_out[6]),
+        .Tile_X3Y6_C_OUT_top  (fabric_uio_in[6]),
+        .Tile_X3Y6_D_EN_top   (fabric_uio_oe[7]),
+        .Tile_X3Y6_D_IN_top   (fabric_uio_out[7]),
+        .Tile_X3Y6_D_OUT_top  (fabric_uio_in[7]),
 
         // SYS_RESET
-        .Tile_X0Y3_SYS_RESET_RESET_top (fabric_sys_reset),
+        .Tile_X0Y6_SYS_RESET_RESET_top (fabric_sys_reset),
 
         .FrameData            (frame_data),
         .FrameStrobe          (frame_strobe)

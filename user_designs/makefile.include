@@ -1,6 +1,6 @@
 # Paths
 PDK 			?= gf180mcuD
-FABRIC 			?= tiny_fabric_6x4
+FABRIC 			?= tiny_fabric_boat_26
 TILE_LIBRARY		?= tiny
 FABULOUS_ROOT 		?= $(abspath ../../../fabrics/$(FABRIC)/macro/$(PDK)/fabulous)
 PCF_CONSTRAINTS 		?= $(abspath $(FABULOUS_ROOT)/../../../constraints.pcf)
@@ -18,9 +18,9 @@ $(info $(PDK))
 $(info $(FABRIC))
 $(info $(TILE_LIBRARY))
 
-ifeq ($(TILE_LIBRARY),classic)
-MULTIPLIER_MAP_PATH 	 = -multiplier-map ../../../../ip/fabulous-tiles/primitives/MACC_8x8_20/yosys/techmap/MACC_8x8_20_map.v
-endif
+CELLS_MAP		 = -cells-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/cells_map.v
+
+ARITH_MAP		 = -arith-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/arith_map.v
 
 EXTRA_PLIBS_PATH 	 = -extra-plib ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/primitives/prims.v \
 			   -extra-plib ../../../../ip/fabulous-tiles/primitives/IOBUF/yosys/primitives/IOBUF.v \
@@ -31,8 +31,7 @@ EXTRA_PLIBS_PATH 	 = -extra-plib ../../../../ip/fabulous-tiles/primitives/FABULO
    			   -extra-plib ../../../../ip/fabulous-tiles/primitives/SYS_RESET/yosys/primitives/SYS_RESET.v
 
 
-EXTRA_MAPS_PATH		 = -extra-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/lut_map.v \
-			   -extra-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/ff_map.v \
+EXTRA_MAPS_PATH		 = -extra-map ../../../../ip/fabulous-tiles/primitives/FABULOUS_LC/yosys/techmap/ff_map.v \
 			   -extra-map ../../../../ip/fabulous-tiles/primitives/IOBUF/yosys/techmap/IOBUF_map.v
 
 CLKBUF_MAP_PATH		 = -clkbuf-map ../../../../ip/fabulous-tiles/primitives/GBUF/yosys/techmap/GBUF_map.v
@@ -49,8 +48,9 @@ synth:
 	-top $(TOP) \
 	-lut 4 \
 	-carry ha \
-	-complex-dff \
 	$(FFS) \
+	$(CELLS_MAP) \
+	$(ARITH_MAP) \
 	$(MULTIPLIER_MAP_PATH) \
 	$(EXTRA_PLIBS_PATH) \
 	$(EXTRA_MAPS_PATH) \

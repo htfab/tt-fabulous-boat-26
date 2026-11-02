@@ -9,6 +9,8 @@ FABRICS_OPENROAD := $(addsuffix -openroad,$(FABRICS))
 FABRICS_KLAYOUT := $(addsuffix -klayout,$(FABRICS))
 FABRICS_COPY := $(addsuffix -copy,$(FABRICS))
 
+TOP = tt_um_fabulous_boat_26
+
 all: $(FABRICS)
 .PHONY: all
 
@@ -36,22 +38,22 @@ $(FABRICS_COPY):
 .PHONY: $(FABRICS_COPY)
 
 tt-fabulous:
-	librelane config.yaml --pdk ${PDK} --scl ${SCL} --save-views-to macro/
+	librelane librelane/config.yaml --pdk ${PDK} --scl ${SCL} --save-views-to macro/
 .PHONY: tt-fabulous
 
 tt-fabulous-openroad:
-	librelane config.yaml --pdk ${PDK} --scl ${SCL} --last-run --flow OpenInOpenROAD
+	librelane librelane/config.yaml --pdk ${PDK} --scl ${SCL} --last-run --flow OpenInOpenROAD
 .PHONY: tt-fabulous
 
 tt-fabulous-klayout:
-	librelane config.yaml --pdk ${PDK} --scl ${SCL} --last-run --flow OpenInKLayout
+	librelane librelane/config.yaml --pdk ${PDK} --scl ${SCL} --last-run --flow OpenInKLayout
 .PHONY: tt-fabulous
 
 # Copy the files for Tiny Tapeout
 tt-fabulous-copy:
 	# Copy GDS and LEF
-	cp macro/gds/tt_um_fabulous_gf_0p3_3v3.gds gds/tt_um_fabulous_gf_0p3_3v3.gds
-	cp macro/lef/tt_um_fabulous_gf_0p3_3v3.lef lef/tt_um_fabulous_gf_0p3_3v3.lef
+	cp macro/gds/${TOP}.gds gds/${TOP}.gds
+	cp macro/lef/${TOP}.lef lef/${TOP}.lef
 .PHONY: tt-fabulous-copy
 
 sim-fabric:
